@@ -5,7 +5,7 @@
       <div class="Add" (click)="Menu.NewPayment=true"><mat-icon fontIcon="add"/></div>
     </div>
     <div class="PaymentBox">
-      @for (Payment of PaymentData | slice:0:1; track PaymentData) {
+      @for (Payment of PaymentData | slice:0:4; track PaymentData) {
         <div class="PaymentItem">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{PData.Title}}</div>
           <div class="Description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quam illo maxime aliquid.? </div>
