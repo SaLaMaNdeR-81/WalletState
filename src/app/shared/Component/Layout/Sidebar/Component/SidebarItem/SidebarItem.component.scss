@@ -1,0 +1,50 @@
+@import "../../../../../../@Core/Styles/Variables.Style.scss";
+@import "../../../../../../@Core/Styles/Function.Style.scss";
+
+.SidebarItem-Box {
+  position: absolute;
+  overflow: hidden;
+  user-select: none;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: $BackGround-Primery;
+
+  box-shadow: 0px 1px 5px $Layout-Border;
+  border-radius: 5px;
+  transition: 200ms;
+  &:active {
+    & .Title {
+      color: $Color-Active;
+    }
+  }
+}
+
+// =============              =============
+//              ==============
+//                  Object
+//              ==============
+// =============              =============
+
+.Icon {
+  @include Center();
+  position: absolute;
+  left: 20px;
+
+  & mat-icon {
+    overflow: visible;
+    font-size: 25px;
+  }
+}
+
+.Title {
+  position: absolute;
+  user-select: none;
+  left: 80px;
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-family: ElectroHarmonix;
+}

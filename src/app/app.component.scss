@@ -1,0 +1,59 @@
+.Box {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+// =====================================
+$Header-Height: 50px;
+
+Layout-Header {
+  position: absolute;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  height: $Header-Height;
+  left: 0;
+  right: 0;
+
+  //   border: 1px solid red;
+}
+
+Layout-Content {
+  position: absolute;
+  z-index: 90;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  inset: 0;
+  top: $Header-Height;
+
+  //   border: 1px solid red;
+}
+
+Layout-Sidebar {
+  position: absolute;
+  z-index: 99;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: $Header-Height;
+  bottom: 0;
+  left: 0;
+  width: 280px;
+
+  // border: 1px solid red;
+}

@@ -1,0 +1,162 @@
+@import "../../@Core/Styles/Function.Style.scss";
+@import "../../@Core/Styles/Variables.Style.scss";
+
+.HomePage-Box {
+  position: absolute;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+.PaymentBox {
+  position: absolute;
+  overflow: hidden;
+  overflow-y: auto;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============
+
+.Actions {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  @include Center;
+  flex-flow: row;
+
+  & div {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    @include Center;
+    margin: 4px;
+    background: $BackGround-Primery;
+    border-radius: 100%;
+    box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+    // border: 1px solid red;
+    & mat-icon {
+      @include Center;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    &:active {
+      box-shadow: inset 0px 1px 5px $Layout-Border;
+    }
+  }
+
+  & .Add {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Save {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Close {
+    & mat-icon {
+      color: brown;
+    }
+  }
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============
+
+.PaymentItem {
+  position: relative;
+  user-select: none;
+
+  width: 100%;
+  min-height: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+  &:active {
+    box-shadow: 0px 1px 5px $Layout-Border;
+  }
+  //   ===
+  .Title {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      left: -15px;
+    }
+  }
+  .Description {
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+    width: 80%;
+    height: 60%;
+    top: 30px;
+    right: 10px;
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 3em;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+    // border: 1px solid red;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      left: -15px;
+    }
+  }
+  .Status {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 15px;
+  }
+  .Age {
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    font-size: 12px;
+  }
+  .Price {
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
+    font-size: 12px;
+    color: forestgreen;
+  }
+}
