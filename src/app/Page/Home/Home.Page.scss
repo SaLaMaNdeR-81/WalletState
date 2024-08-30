@@ -18,6 +18,7 @@
 
 .PaymentBox {
   position: absolute;
+  z-index: 90;
   overflow: hidden;
   overflow-y: auto;
   inset: 0;
@@ -42,6 +43,7 @@
 
 .Actions {
   position: absolute;
+  z-index: 100;
   bottom: 10px;
   left: 10px;
   @include Center;

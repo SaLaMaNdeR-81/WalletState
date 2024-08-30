@@ -40,6 +40,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
+              "./node_modules/uikit/dist/css/uikit.min.css",
               "src/styles.scss"
             ],
             "scripts": [
