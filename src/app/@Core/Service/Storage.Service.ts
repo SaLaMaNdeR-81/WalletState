@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
 
-<<<<<<< HEAD
 export enum Storage{
   RefreshTime = 500,
   PAYMENTLIST = "PaymentList",
   STATUSLIST = "StatustList"
 }
 
-=======
->>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
-<<<<<<< HEAD
   private readonly RefreshTime :number = 300
   private readonly PAYMENTLIST :string = "PaymentList"
   private readonly PAYMENTSTATUS :string = "WalletStat"
@@ -65,20 +61,4 @@ export class StorageService {
 
   
 
-=======
-  private readonly WEBSITENAME : string = "ChatRoom"
-
-  public ResetTitle(){
-    document.title = this.WEBSITENAME
-  }
-
-  public SetTitle(Title:string){
-    document.title = `${this.WEBSITENAME} - ${Title}`
-  }
-
-  public SetSpecialTitle(Title:string){
-    document.title = Title
-  }
-
->>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
 }
