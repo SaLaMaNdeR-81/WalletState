@@ -1,0 +1,11 @@
+<div class="SidebarMenu-Item" (click)="TogleMenu()">
+
+    <div class="Arrow " [ngClass]="{'Active':ContentMenu}"><mat-icon fontIcon="keyboard_arrow_down"/></div>
+    <div class="Icon"><mat-icon [fontIcon]='Icon' [ngStyle]="{'color': Color}"/></div>
+    <div class="Title">{{Title}}</div>
+
+</div>
+
+<div class="SidebarMenu-Menu" *ngIf="ContentMenu" >
+  <ng-content></ng-content>
+</div>

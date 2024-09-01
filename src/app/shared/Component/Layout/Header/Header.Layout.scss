@@ -1,0 +1,68 @@
+@import "../../../../@Core/Styles/Variables.Style.scss";
+
+.Header-Box {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: center;
+  align-items: center;
+
+  // border:  1px solid red;
+  //   box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 2px 6px $Layout-Border;
+}
+
+// ===============================
+
+.Header-HamberBtn {
+  position: absolute;
+  user-select: none;
+
+  left: 20px;
+  bottom: 4px;
+  transition: 200ms;
+  transform: scale(1.2);
+
+  &:active {
+    transform: translateY(3px) scale(1.2);
+  }
+
+  // ===
+}
+
+.Header-Item {
+  position: relative;
+  user-select: none;
+
+  margin: 3px;
+  padding: 3px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Minecraft";
+  font-size: 20px;
+
+  transition: 200ms;
+
+  &.Hamber {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+  &.Dashboard {
+    position: absolute;
+    left: 60px;
+    color: darkcyan;
+  }
+
+  &:active {
+    color: gold;
+    transform: translateY(3px);
+  }
+
+  // ===
+}

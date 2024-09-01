@@ -1,0 +1,11 @@
+<div class="Box">
+
+  <Layout-Header (ToggleSidebar)="ToggleSidebar()"/>
+  <Layout-Sidebar *ngIf="SidebarState" @SlideInOut/>
+  <Layout-Content>
+
+    <Page-Home/>
+
+  </Layout-Content>
+
+</div>

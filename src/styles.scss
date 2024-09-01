@@ -1,0 +1,33 @@
+@import "./app/@Core/Styles/Variables.Style.scss";
+@import "./app/@Core/Styles/Font.Style.scss";
+
+// =============              =============
+//              ==============
+//                   Main
+//              ==============
+// =============              =============
+
+* {
+  margin: 0%;
+  padding: 0%;
+
+  box-sizing: border-box;
+  font-family: "IranYekan", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: $BackGround-Primery;
+  color: $Color;
+}
+
+// =============              =============
+//              ==============
+//                  More
+//              ==============
+// =============              =============

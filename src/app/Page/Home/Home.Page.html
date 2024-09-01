@@ -1,0 +1,47 @@
+<div class="HomePage-Box">
+
+  @if (!Menu.NewPayment) {
+    <div class="Home-Title">PaymentList</div>
+    <div class="Actions">
+      <div class="Add" (click)="Menu.NewPayment=true"><mat-icon fontIcon="add"/></div>
+    </div>
+    <div class="PaymentBox">
+      @for (Payment of PaymentData ; track PaymentData) {
+        <div class="PaymentItem">
+          <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
+          <div class="Description"> {{Payment.Description}} </div>
+          <div class="Status">---</div>
+          <div class="Age">{{TimeService.GenTimeAge(Payment.Creation)}}</div>
+          <div class="Price">{{Payment.Price.toLocaleString()}} ᵀ</div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- =============              ============= -->
+               <!-- ============== -->
+               <!--   PaymentForm  -->
+               <!-- ============== -->
+  <!-- =============              ============= -->
+
+  @if (Menu.NewPayment) {
+    <div class="Home-Title">PaymentForm</div>
+    <div class="Actions">
+      <div class="Close" (click)="Menu.NewPayment=false"><mat-icon fontIcon="close"/></div>
+      <div class="Save" (click)="null"><mat-icon fontIcon="done"/></div>
+    </div>
+    <div class="PaymentForm">
+
+      <div class="Title"></div>
+      <div class="Description"></div>
+      <div class="Price"></div>
+      <div class="Status"></div>
+      <div class="Profit">
+        <div class="Item true" [ngClass]="{'Active': PaymentForm.Profit}" (click)="PaymentForm.Profit=true"><mat-icon fontIcon="trending_up"/></div>
+        <div class="Item false"[ngClass]="{'Active': !PaymentForm.Profit}"(click)="PaymentForm.Profit=false"><mat-icon fontIcon="trending_down"/></div>
+      </div>
+
+    </div>
+  }
+
+</div>

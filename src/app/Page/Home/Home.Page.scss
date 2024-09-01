@@ -1,0 +1,289 @@
+@import "../../@Core/Styles/Function.Style.scss";
+@import "../../@Core/Styles/Variables.Style.scss";
+
+.HomePage-Box {
+  position: absolute;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+.PaymentBox {
+  position: absolute;
+  z-index: 90;
+  overflow: hidden;
+  overflow-y: auto;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+.PaymentForm {
+  position: absolute;
+  z-index: 90;
+  overflow: hidden;
+  overflow-y: auto;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // border: 1px solid red;
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============
+
+.Home-Title {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  font-family: ElectroHarmonix;
+  font-size: 20px;
+}
+
+.Actions {
+  position: absolute;
+  z-index: 100;
+  bottom: 10px;
+  left: 10px;
+  @include Center;
+  flex-flow: row;
+
+  & div {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    @include Center;
+    margin: 4px;
+    background: $BackGround-Primery;
+    border-radius: 100%;
+    box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+    // border: 1px solid red;
+    & mat-icon {
+      @include Center;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    &:active {
+      box-shadow: inset 0px 1px 5px $Layout-Border;
+    }
+  }
+
+  & .Add {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Save {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Close {
+    & mat-icon {
+      color: brown;
+    }
+  }
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============
+
+.PaymentItem {
+  position: relative;
+  user-select: none;
+
+  width: 100%;
+  min-height: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+  &:active {
+    box-shadow: 0px 1px 5px $Layout-Border;
+  }
+  //   ===
+  .Title {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      left: -15px;
+    }
+  }
+  .Description {
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+    width: 80%;
+    height: 60%;
+    top: 30px;
+    right: 10px;
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 3em;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+    // border: 1px solid red;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      left: -15px;
+    }
+  }
+  .Status {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 15px;
+  }
+  .Age {
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    font-size: 12px;
+  }
+  .Price {
+    position: absolute;
+    bottom: 2px;
+    left: 10px;
+    font-size: 12px;
+    color: forestgreen;
+  }
+}
+
+// =============              =============
+//              ==============
+//               PaymentForm Object
+//              ==============
+// =============              =============
+
+.PaymentForm {
+  & .Title {
+    position: absolute;
+
+    width: 180px;
+    height: 60px;
+    top: 60px;
+    right: 20px;
+
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+  }
+  & .Description {
+    position: absolute;
+
+    width: 90%;
+    height: 150px;
+    top: 140px;
+
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+    & mat-form-field {
+      position: absolute;
+      inset: 0;
+      direction: rtl;
+      background: $BackGround-Secondary;
+    }
+  }
+  & .Price {
+    position: absolute;
+
+    width: 140px;
+    height: 60px;
+    top: 310px;
+    left: 20px;
+
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+  }
+  & .Status {
+    position: absolute;
+
+    width: 140px;
+    height: 60px;
+    top: 310px;
+    right: 20px;
+
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+  }
+  & .Profit {
+    position: absolute;
+
+    width: 140px;
+    height: 60px;
+    top: 380px;
+    left: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    // border: 1px solid $Layout-Border;
+
+    & .Item {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin: 10px;
+      padding: 3px;
+      @include Center;
+      border-radius: 5px;
+      transition: 200ms;
+      box-shadow: 0px 2px 5px $Layout-Border;
+      & mat-icon {
+        @include Center;
+        overflow: visible;
+        font-size: 30px;
+      }
+      &.true mat-icon {
+        color: greenyellow;
+      }
+      &.false mat-icon {
+        color: brown;
+      }
+      &.Active {
+        box-shadow: inset 0px 2px 5px $Layout-Border;
+      }
+      &:active {
+        transform: translateY(5px);
+      }
+    }
+  }
+}
