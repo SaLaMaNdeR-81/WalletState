@@ -21,6 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+<<<<<<< HEAD
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   exports: [
     ReactiveFormsModule,
+=======
+
+@NgModule({
+  exports: [
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
@@ -48,11 +54,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatTooltipModule,
     ScrollingModule,
+<<<<<<< HEAD
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     BrowserAnimationsModule,
 
+=======
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
   ],
 })
 export class MaterialModule {}

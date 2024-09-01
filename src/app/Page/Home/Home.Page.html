@@ -1,11 +1,15 @@
 <div class="HomePage-Box">
 
   @if (!Menu.NewPayment) {
+<<<<<<< HEAD
     <div class="Home-Title">PaymentList</div>
+=======
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
     <div class="Actions">
       <div class="Add" (click)="Menu.NewPayment=true"><mat-icon fontIcon="add"/></div>
     </div>
     <div class="PaymentBox">
+<<<<<<< HEAD
       @for (Payment of PaymentData ; track PaymentData) {
         <div class="PaymentItem">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
@@ -13,6 +17,15 @@
           <div class="Status">---</div>
           <div class="Age">{{TimeService.GenTimeAge(Payment.Creation)}}</div>
           <div class="Price">{{Payment.Price.toLocaleString()}} ᵀ</div>
+=======
+      @for (Payment of PaymentData | slice:0:4; track PaymentData) {
+        <div class="PaymentItem">
+          <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{PData.Title}}</div>
+          <div class="Description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quam illo maxime aliquid.? </div>
+          <div class="Status">---</div>
+          <div class="Age">3ᵈᵃʸ</div>
+          <div class="Price">120,000 ᵀ</div>
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
         </div>
       }
     </div>
@@ -20,16 +33,24 @@
 
   <!-- =============              ============= -->
                <!-- ============== -->
+<<<<<<< HEAD
                <!--   PaymentForm  -->
+=======
+               <!--   PaymentMenu  -->
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
                <!-- ============== -->
   <!-- =============              ============= -->
 
   @if (Menu.NewPayment) {
+<<<<<<< HEAD
     <div class="Home-Title">PaymentForm</div>
+=======
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
     <div class="Actions">
       <div class="Close" (click)="Menu.NewPayment=false"><mat-icon fontIcon="close"/></div>
       <div class="Save" (click)="null"><mat-icon fontIcon="done"/></div>
     </div>
+<<<<<<< HEAD
     <div class="PaymentForm">
 
       <div class="Title"><input type="text"></div>
@@ -42,6 +63,8 @@
       </div>
 
     </div>
+=======
+>>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
   }
 
 </div>
