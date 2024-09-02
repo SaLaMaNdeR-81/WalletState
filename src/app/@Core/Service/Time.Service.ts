@@ -6,18 +6,9 @@ import { Injectable } from '@angular/core';
 export class TimeService {
 
   public GenTimeAge(Timestamp:any){
-<<<<<<< HEAD
     if(!Timestamp) return null
     const now = Date.now();
         const diffSeconds = Math.floor((now - Timestamp) / 1000);
-=======
-
-    if(!Timestamp) return null
-
-    const now = Date.now();
-        const diffSeconds = Math.floor((now - Timestamp) / 1000);
-        
->>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
         const year = 31536000;
         const day = 86400;
         const hour = 3600;

@@ -111,13 +111,8 @@
         }
       }
     }
-<<<<<<< HEAD
   },
   "cli": {
     "analytics": false
   }
 }
-=======
-  }
-}
->>>>>>> ad49858f569c00bc7ddb90eacaacb4730d86b74d
