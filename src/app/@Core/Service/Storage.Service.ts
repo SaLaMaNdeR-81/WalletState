@@ -37,10 +37,10 @@ export class StorageService {
     return FixData;
   }
 
-  public SingleGet(Storage:string,UId:string){
-    const Data:any = this.Get(Storage)
-    const FindItem = Data.find((Item:any) => Item.UID == UId)
-    return FindItem ;
+  public SingleGet(Storage: string, UID: string): any {
+    const GetData: any = this.Get(Storage);
+    const SingleItem = GetData.find((Item: any) => Item.UID === UID);
+    return SingleItem;
   }
 
   public Set(Storage:string,Data:any):void{
@@ -55,7 +55,7 @@ export class StorageService {
         Item.UID === UID ? { ...Item, ...ItemData } : Item
     );
     this.Set(Storage,UpdateData)
-}
+  }
 
   public Add(Storage:string,Item:any):void{
     this.CheckStorage(Storage)
@@ -65,11 +65,11 @@ export class StorageService {
     this.Set(Storage,Data)
     
   }
-  public Delete(Storage: string, UID: string) {
+  public Delete(Storage: string, UID: string):void {
     const GetData: any = this.Get(Storage);
     const UpdatedData = GetData.filter((Item: any) => Item.UID !== UID);
     this.Set(Storage,UpdatedData)
-}
+  }
 
   
 

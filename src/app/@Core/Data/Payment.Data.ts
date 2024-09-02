@@ -5,7 +5,7 @@ export const PaymentTestData:Payment[] = [
         UID : "UID-1",
         Title : "Title 1",
         Description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quam illo maxime aliquid.?",
-        StatusId:"",
+        StatusId:"StatusUID-1",
         Creation:"1716599917000",
         Price:1000,
         Profit:false
@@ -14,7 +14,7 @@ export const PaymentTestData:Payment[] = [
         UID : "UID-2",
         Title : "Title 2",
         Description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quam illo maxime aliquid.?",
-        StatusId:"",
+        StatusId:"StatusUID-2",
         Creation:"1716599917000",
         Price:0,
         Profit:false

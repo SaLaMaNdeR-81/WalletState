@@ -52,6 +52,10 @@ export class PageHome {
       this.PaymentData = this.StorageService.Get(Storage.PAYMENTLIST)
     },Storage.RefreshTime)
   }
+
+  public GetStatusData(UID:any){
+    return this.StorageService.SingleGet(Storage.STATUSLIST,UID)
+  }
   
 
 // =============              =============
@@ -95,6 +99,6 @@ export class PageHome {
     }
     
   }
-
-
+  
+  
 }

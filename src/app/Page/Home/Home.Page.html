@@ -7,10 +7,15 @@
     </div>
     <div class="PaymentBox">
       @for (Payment of PaymentData ; track Payment.UID) {
-        <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)">
+        @let StatusData = GetStatusData(Payment.StatusId) ;
+        <!-- <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="{'border-color': StatusData.Color}"> -->
+          <!-- <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" > -->
+          <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
           <div class="Description"> {{Payment.Description}} </div>
-          <div class="Status">---</div>
+          
+            @if (!StatusData) {<div class="Status" *ngIf="!StatusData">---</div>}
+            @if (StatusData) {<div class="Status" *ngIf="StatusData">{{StatusData.Name}}</div>}
           <div class="Age">{{TimeService.GenTimeAge(Payment.Creation)}}</div>
           <div class="Price" [ngStyle]="{'color': Payment.Profit ? 'forestgreen' : 'brown'}">{{Payment.Price.toLocaleString()}} ᵀ</div>
         </div>
