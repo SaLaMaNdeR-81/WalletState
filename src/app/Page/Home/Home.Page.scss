@@ -56,12 +56,21 @@
 
 .Home-Title {
   position: absolute;
+  user-select: none;
 
   top: 20px;
   left: 20px;
 
   font-family: ElectroHarmonix;
   font-size: 20px;
+  &.Empty {
+    top: 100px;
+    left: unset;
+    color: goldenrod;
+    & mat-icon {
+      color: goldenrod;
+    }
+  }
 }
 
 .Actions {
@@ -100,6 +109,12 @@
   & .Save {
     & mat-icon {
       color: green;
+    }
+  }
+  & .Delete {
+    & mat-icon {
+      color: brown;
+      font-weight: 300;
     }
   }
   & .Close {
@@ -154,6 +169,7 @@
     font-size: 10px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     max-height: 3em;
     line-height: 1.5em;
@@ -191,18 +207,44 @@
 //               PaymentForm Object
 //              ==============
 // =============              =============
+@mixin FormTitle($title) {
+  &::before {
+    position: absolute;
+    content: $title;
+    right: 5px;
+    top: 5px;
+    font-size: 12px;
+  }
+}
 
 .PaymentForm {
+  & div input {
+    &:focus {
+      border-bottom: 3px solid $Layout-Border;
+    }
+  }
   & .Title {
     position: absolute;
+    overflow: hidden;
 
     width: 180px;
     height: 60px;
     top: 60px;
     right: 20px;
-
     border-radius: 5px;
     border: 1px solid $Layout-Border;
+    @include FormTitle("Title");
+    & input {
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      font-size: 15px;
+      background: transparent;
+      text-align: center;
+      outline: unset;
+      border: unset;
+      color: $Color;
+    }
   }
   & .Description {
     position: absolute;
@@ -213,11 +255,21 @@
 
     border-radius: 5px;
     border: 1px solid $Layout-Border;
-    & mat-form-field {
+    @include FormTitle("Description");
+    & textarea {
       position: absolute;
       inset: 0;
+      top: 20px;
+      padding: 5px;
+      outline: unset;
+      resize: none;
       direction: rtl;
-      background: $BackGround-Secondary;
+      background: transparent;
+      border: unset;
+      color: $Color;
+      &:focus {
+        border-bottom: 3px solid $Layout-Border;
+      }
     }
   }
   & .Price {
@@ -230,17 +282,18 @@
 
     border-radius: 5px;
     border: 1px solid $Layout-Border;
-  }
-  & .Status {
-    position: absolute;
-
-    width: 140px;
-    height: 60px;
-    top: 310px;
-    right: 20px;
-
-    border-radius: 5px;
-    border: 1px solid $Layout-Border;
+    @include FormTitle("Price");
+    & input {
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      font-size: 15px;
+      background: transparent;
+      text-align: center;
+      outline: unset;
+      border: unset;
+      color: $Color;
+    }
   }
   & .Profit {
     position: absolute;
@@ -285,5 +338,17 @@
         transform: translateY(5px);
       }
     }
+  }
+  & .Status {
+    position: absolute;
+
+    width: 140px;
+    height: 60px;
+    top: 310px;
+    right: 20px;
+
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+    @include FormTitle("Status");
   }
 }

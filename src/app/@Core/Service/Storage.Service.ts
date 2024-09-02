@@ -19,14 +19,14 @@ export class StorageService {
 
   }
 
-  public CheckStorage(Storage:string){
+  public CheckStorage(Storage:string):void{
     if(!localStorage.getItem(Storage)){
       const Data = JSON.stringify([])
       localStorage.setItem(Storage,Data)
     }
   }
 
-  public Clear(Storage:string){
+  public Clear(Storage:string):void{
     localStorage.removeItem(Storage)
   }
 
@@ -43,21 +43,33 @@ export class StorageService {
     return FindItem ;
   }
 
-  public Set(Storage:string,Data:any){
+  public Set(Storage:string,Data:any):void{
     this.Clear(Storage)
     const FixData = JSON.stringify(Data)
     localStorage.setItem(Storage,FixData) 
   }
 
-  public Edit(Storage:Storage,Data:any){
+  public Edit(Storage: string, UID: String, ItemData: any):void {
+    const GetData: any = this.Get(Storage);
+    const UpdateData = GetData.map((Item: any) => 
+        Item.UID === UID ? { ...Item, ...ItemData } : Item
+    );
+    this.Set(Storage,UpdateData)
+}
+
+  public Add(Storage:string,Item:any):void{
+    this.CheckStorage(Storage)
+    const Data= this.Get(Storage)
+    Data.push(Item)
+
+    this.Set(Storage,Data)
     
   }
-  public Add(Storage:Storage,UId:string,Data:any){
-
-  }
-  public Remove(){
-
-  }
+  public Delete(Storage: string, UID: string) {
+    const GetData: any = this.Get(Storage);
+    const UpdatedData = GetData.filter((Item: any) => Item.UID !== UID);
+    this.Set(Storage,UpdatedData)
+}
 
   
 

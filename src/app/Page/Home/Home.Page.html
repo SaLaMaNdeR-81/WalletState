@@ -1,19 +1,21 @@
 <div class="HomePage-Box">
 
-  @if (!Menu.NewPayment) {
+  @if (!Menu.PaymentForm) {
     <div class="Home-Title">PaymentList</div>
     <div class="Actions">
-      <div class="Add" (click)="Menu.NewPayment=true"><mat-icon fontIcon="add"/></div>
+      <div class="Add" (click)="OpenPaymentForm()"><mat-icon fontIcon="add"/></div>
     </div>
     <div class="PaymentBox">
-      @for (Payment of PaymentData ; track PaymentData) {
-        <div class="PaymentItem">
+      @for (Payment of PaymentData ; track Payment.UID) {
+        <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
           <div class="Description"> {{Payment.Description}} </div>
           <div class="Status">---</div>
           <div class="Age">{{TimeService.GenTimeAge(Payment.Creation)}}</div>
-          <div class="Price">{{Payment.Price.toLocaleString()}} ᵀ</div>
+          <div class="Price" [ngStyle]="{'color': Payment.Profit ? 'forestgreen' : 'brown'}">{{Payment.Price.toLocaleString()}} ᵀ</div>
         </div>
+      }@empty {
+        <div class="Home-Title Empty"> Empty List <mat-icon fontIcon="warning_amber"/></div>
       }
     </div>
   }
@@ -24,22 +26,23 @@
                <!-- ============== -->
   <!-- =============              ============= -->
 
-  @if (Menu.NewPayment) {
+  @if (Menu.PaymentForm) {
     <div class="Home-Title">PaymentForm</div>
     <div class="Actions">
-      <div class="Close" (click)="Menu.NewPayment=false"><mat-icon fontIcon="close"/></div>
-      <div class="Save" (click)="null"><mat-icon fontIcon="done"/></div>
+      <div class="Close" (click)="ClosePaymentForm()"><mat-icon fontIcon="close"/></div>
+      <div class="Save" (click)="SavePaymentForm()"><mat-icon fontIcon="done"/></div>
+      <div class="Delete" *ngIf="PaymentFormIsUpdate" (click)="DeletePayment()"><mat-icon fontIcon="delete_outline"/></div>
     </div>
     <div class="PaymentForm">
 
-      <div class="Title"><input type="text"></div>
-      <div class="Description"></div>
-      <div class="Price"></div>
-      <div class="Status"></div>
+      <div class="Title"><input type="text" [(ngModel)]="PaymentForm.Title"></div>
+      <div class="Description"><textarea [(ngModel)]="PaymentForm.Description"></textarea></div>
+      <div class="Price"><input type="number" [(ngModel)]="PaymentForm.Price"></div>
       <div class="Profit">
         <div class="Item true" [ngClass]="{'Active': PaymentForm.Profit}" (click)="PaymentForm.Profit=true"><mat-icon fontIcon="trending_up"/></div>
         <div class="Item false"[ngClass]="{'Active': !PaymentForm.Profit}"(click)="PaymentForm.Profit=false"><mat-icon fontIcon="trending_down"/></div>
       </div>
+      <div class="Status"></div>
 
     </div>
   }
