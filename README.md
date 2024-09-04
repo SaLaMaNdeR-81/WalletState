@@ -2,7 +2,7 @@
 ---
 **`❓ About Application`**
 
-> **💾 languages :** Angular,Sass
+> **💾 languages :** [Angular,Sass]
 
 > **🫙 Storage :** LocalStorag
 
