@@ -18,6 +18,7 @@ import { SidebarLabel } from '../Component/Layout/Sidebar/Component/SidebarLabel
   exports: [
     SidebarItem,
     SidebarMenu,
+    SidebarLabel,
   ]
 })
 export class SubComponents { }

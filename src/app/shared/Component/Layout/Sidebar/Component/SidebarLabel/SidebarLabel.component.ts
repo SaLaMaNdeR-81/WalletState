@@ -1,11 +1,12 @@
-import { Component,OnInit ,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'Sidebar-Label',
   templateUrl: './SidebarLabel.component.html',
   styleUrls: ['./SidebarLabel.component.scss']
 })
-export class SidebarLabel {
+
+export class SidebarLabel  {
 
   @Input() Title:string=""
   @Input() Icon:string=""
