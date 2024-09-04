@@ -61,7 +61,7 @@ export class PageHome {
     setInterval(()=>{
       if (this.SelectedStatusID) {
         this.FinalPaymentData =  this.PaymentData.filter((Item: any) => Item.StatusId === this.SelectedStatusID);
-      }else{
+      }if(!this.SelectedStatusID || this.SelectedStatusID == "Everyone"){
         this.FinalPaymentData =  this.PaymentData
       }
     },Storage.RefreshTime)

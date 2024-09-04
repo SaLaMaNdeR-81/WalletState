@@ -5,7 +5,7 @@
     <div class="Home-StatusFilter">
       <label *ngIf="!SelectedStatusID">------</label>
       <select [(ngModel)]="SelectedStatusID">
-        <option class="Item" > --- </option>
+        <option class="Item" [value]="'Everyone'" > --- </option>
         @for (Status of StatusListData; track $index) {<option class="Item" [ngStyle]="{'color':Status.Color}" [value]="Status.UID"> {{Status.Name}} </option>}
       </select>
     </div>

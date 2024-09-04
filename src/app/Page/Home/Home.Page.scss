@@ -98,6 +98,9 @@
     font-size: 14px;
     border: unset;
     // border: 1px solid red;
+    &:focus {
+      outline: none;
+    }
     & option {
       position: relative;
       background-color: $BackGround-Primery;
