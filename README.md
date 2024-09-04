@@ -3,7 +3,9 @@
 **`❓ About Application`**
 
 > **💾 languages :** Angular-Sass
-> **🫙 Storage :** LocalStorage
-> **🫙 Storage :** LocalStorage
+
+> **🫙 Storage :** LocalStorag
+
+> **🎯 Purpose :** Manage Daily Payment of Wallet
 
 ----
