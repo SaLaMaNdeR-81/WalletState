@@ -1,4 +1,4 @@
-**` 📱WalletStat`**
+**📱WalletStat**
 ---
 **`❓ About Application`**
 
