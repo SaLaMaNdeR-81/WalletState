@@ -351,5 +351,33 @@
     border-radius: 5px;
     border: 1px solid $Layout-Border;
     @include FormTitle("Status");
+    @include Center();
+
+    & select {
+      position: absolute;
+      inset: 0;
+      right: 35px;
+      padding: 10px;
+      appearance: none;
+      background: transparent;
+      color: $Color;
+      font-size: 14px;
+      border: unset;
+      &:focus {
+        outline: none;
+      }
+      & option {
+        position: relative;
+        background-color: $BackGround-Primery;
+        width: 140px;
+        height: 60px;
+        color: $Color;
+        padding: 10px;
+        border-color: transparent;
+        &:focus {
+          background: $BackGround-Secondary;
+        }
+      }
+    }
   }
 }

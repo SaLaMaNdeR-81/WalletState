@@ -18,7 +18,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ]
 })
 export class AppComponent {
-  SidebarState :boolean = false
+  SidebarState :boolean = true
 
   constructor(private TitleService:TitleService){
     TitleService.ResetTitle()

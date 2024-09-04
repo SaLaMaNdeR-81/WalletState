@@ -14,6 +14,7 @@ export class PageHome {
 
   PaymentFormIsUpdate:boolean=false
   PaymentData:any = []
+  StatusListData:any = []
   public Menu:any={
     PaymentForm: false,
   }
@@ -30,6 +31,7 @@ export class PageHome {
 
   constructor(private StorageService:StorageService, public TimeService:TimeService ) {
     this.GetPaymentData()
+    this.GetStatusListData()
   }
 
   private GenerateUID() {
@@ -50,6 +52,11 @@ export class PageHome {
   private GetPaymentData(){
     setInterval(()=>{
       this.PaymentData = this.StorageService.Get(Storage.PAYMENTLIST)
+    },Storage.RefreshTime)
+  }
+  private GetStatusListData(){
+    setInterval(()=>{
+      this.StatusListData = this.StorageService.Get(Storage.STATUSLIST)
     },Storage.RefreshTime)
   }
 

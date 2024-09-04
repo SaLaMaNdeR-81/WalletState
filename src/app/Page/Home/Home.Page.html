@@ -8,14 +8,11 @@
     <div class="PaymentBox">
       @for (Payment of PaymentData ; track Payment.UID) {
         @let StatusData = GetStatusData(Payment.StatusId) ;
-        <!-- <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="{'border-color': StatusData.Color}"> -->
-          <!-- <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" > -->
-          <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
+        <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
           <div class="Description"> {{Payment.Description}} </div>
-          
-            @if (!StatusData) {<div class="Status" *ngIf="!StatusData">---</div>}
-            @if (StatusData) {<div class="Status" *ngIf="StatusData">{{StatusData.Name}}</div>}
+          @if (!StatusData) {<div class="Status" *ngIf="!StatusData">---</div>}
+          @if (StatusData) {<div class="Status" [ngStyle]="{'color':StatusData.Color}" *ngIf="StatusData">{{StatusData.Name}}</div>}
           <div class="Age">{{TimeService.GenTimeAge(Payment.Creation)}}</div>
           <div class="Price" [ngStyle]="{'color': Payment.Profit ? 'forestgreen' : 'brown'}">{{Payment.Price.toLocaleString()}} ᵀ</div>
         </div>
@@ -47,7 +44,16 @@
         <div class="Item true" [ngClass]="{'Active': PaymentForm.Profit}" (click)="PaymentForm.Profit=true"><mat-icon fontIcon="trending_up"/></div>
         <div class="Item false"[ngClass]="{'Active': !PaymentForm.Profit}"(click)="PaymentForm.Profit=false"><mat-icon fontIcon="trending_down"/></div>
       </div>
-      <div class="Status"></div>
+      @let StatusData = GetStatusData(PaymentForm.StatusId) ;
+      <div class="Status" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
+        <!-- <label>Choose a pet:</label> -->
+        
+        <label *ngIf="!PaymentForm.StatusId">------</label>
+        <select [(ngModel)]="PaymentForm.StatusId">
+          <option class="Item" [value]="" > --- </option>
+          @for (Status of StatusListData; track $index) {<option class="Item" [ngStyle]="{'color':Status.Color}" [value]="Status.UID"> {{Status.Name}} </option>}
+        </select>
+      </div>
 
     </div>
   }
