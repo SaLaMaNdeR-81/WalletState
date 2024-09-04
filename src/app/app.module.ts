@@ -18,7 +18,7 @@ import { PageHome } from './Page/Home/Home.Page';
     LayoutHeader,
     LayoutContent,
     LayoutSidebar,
-    
+
     PageHome,
   ],
   imports: [
