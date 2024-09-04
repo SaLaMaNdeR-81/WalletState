@@ -1,12 +1,9 @@
-**`💻 WalletStat`**
+**` 📱WalletStat`**
 ---
-**`💻 About Application`**
+**`❓ About Application`**
 
-> **💾 programming languages :** Angular
+> **💾 languages :** Angular-Sass
+> **🫙 Storage :** LocalStorage
+> **🫙 Storage :** LocalStorage
 
-> **🗂️ I'm interested WebDeveloping**
-
-> **📦 Coding on: JavaScript**
-
-> **🎟️ I'm interested Programing**
 ----
