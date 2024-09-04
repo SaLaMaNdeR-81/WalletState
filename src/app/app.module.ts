@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { LayoutHeader } from './shared/Component/Layout/Header/Header.Layout';
 import { LayoutContent } from './shared/Component/Layout/Content/Content.Layout';
 import { LayoutSidebar } from './shared/Component/Layout/Sidebar/Sidebar.Layout';
+
 import { PageHome } from './Page/Home/Home.Page';
+import { PageStatus } from './Page/Status/Status.Page';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { PageHome } from './Page/Home/Home.Page';
     LayoutSidebar,
 
     PageHome,
+    PageStatus,
   ],
   imports: [
     BrowserModule,

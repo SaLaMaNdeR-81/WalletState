@@ -1,0 +1,23 @@
+@import "../../@Core/Styles/Function.Style.scss";
+@import "../../@Core/Styles/Variables.Style.scss";
+
+.StatusPage-Box {
+  position: absolute;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============

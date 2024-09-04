@@ -1,4 +1,6 @@
 import { Component, OnInit ,Output ,Input ,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { StorageService,Storage } from '../../../../@Core/Service/Storage.Service';
 import { PaymentTestData } from '../../../../@Core/Data/Payment.Data';
 import { StatusTestData } from '../../../../@Core/Data/Status.Data';
@@ -12,7 +14,7 @@ export class LayoutSidebar implements OnInit {
 
   
 
-  constructor(private StorageService:StorageService) { }
+  constructor(private StorageService:StorageService,private Router:Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +31,13 @@ export class LayoutSidebar implements OnInit {
     this.StorageService.Clear(Storage.PAYMENTLIST)
     this.StorageService.Clear(Storage.STATUSLIST)
   }
+  
+  public RedirectToHome() {
+    this.Router.navigate(['']); // Redirects to '/home' route
+  }
 
+  public RedirectStatus() {
+    this.Router.navigate(['/status']); // Redirects to '/home' route
+  }
 
 }
