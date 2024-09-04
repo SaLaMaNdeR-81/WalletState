@@ -14,6 +14,8 @@ export class PageHome {
 
   PaymentFormIsUpdate:boolean=false
   PaymentData:any = []
+  SelectedStatusID:string= ""
+  FinalPaymentData:any = []
   StatusListData:any = []
   public Menu:any={
     PaymentForm: false,
@@ -31,6 +33,7 @@ export class PageHome {
 
   constructor(private StorageService:StorageService, public TimeService:TimeService ) {
     this.GetPaymentData()
+    this.GetFinalPaymentData()
     this.GetStatusListData()
   }
 
@@ -52,6 +55,15 @@ export class PageHome {
   private GetPaymentData(){
     setInterval(()=>{
       this.PaymentData = this.StorageService.Get(Storage.PAYMENTLIST)
+    },Storage.RefreshTime)
+  }
+  private GetFinalPaymentData(){
+    setInterval(()=>{
+      if (this.SelectedStatusID) {
+        this.FinalPaymentData =  this.PaymentData.filter((Item: any) => Item.StatusId === this.SelectedStatusID);
+      }else{
+        this.FinalPaymentData =  this.PaymentData
+      }
     },Storage.RefreshTime)
   }
   private GetStatusListData(){

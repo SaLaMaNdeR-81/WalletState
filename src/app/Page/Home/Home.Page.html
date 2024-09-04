@@ -2,11 +2,18 @@
 
   @if (!Menu.PaymentForm) {
     <div class="Home-Title">PaymentList</div>
+    <div class="Home-StatusFilter">
+      <label *ngIf="!SelectedStatusID">------</label>
+      <select [(ngModel)]="SelectedStatusID">
+        <option class="Item" > --- </option>
+        @for (Status of StatusListData; track $index) {<option class="Item" [ngStyle]="{'color':Status.Color}" [value]="Status.UID"> {{Status.Name}} </option>}
+      </select>
+    </div>
     <div class="Actions">
       <div class="Add" (click)="OpenPaymentForm()"><mat-icon fontIcon="add"/></div>
     </div>
     <div class="PaymentBox">
-      @for (Payment of PaymentData ; track Payment.UID) {
+      @for (Payment of FinalPaymentData ; track Payment.UID) {
         @let StatusData = GetStatusData(Payment.StatusId) ;
         <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>

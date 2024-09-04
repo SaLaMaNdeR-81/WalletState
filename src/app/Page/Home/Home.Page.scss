@@ -24,7 +24,7 @@
   inset: 0;
 
   padding: 10px;
-  padding-top: 60px;
+  padding-top: 90px;
   padding-bottom: 60px;
 
   display: flex;
@@ -69,6 +69,46 @@
     color: goldenrod;
     & mat-icon {
       color: goldenrod;
+    }
+  }
+}
+
+.Home-StatusFilter {
+  position: absolute;
+  z-index: 100;
+
+  width: 140px;
+  height: 40px;
+  top: 20px;
+  right: 20px;
+
+  border-radius: 5px;
+  border: 1px solid $Layout-Border;
+  @include FormTitle("Filter");
+  @include Center();
+
+  & select {
+    position: absolute;
+    inset: 0;
+    right: 35px;
+    padding: 10px;
+    appearance: none;
+    background: transparent;
+    color: $Color;
+    font-size: 14px;
+    border: unset;
+    // border: 1px solid red;
+    & option {
+      position: relative;
+      background-color: $BackGround-Primery;
+      width: 140px;
+      height: 60px;
+      color: $Color;
+      padding: 10px;
+      border-color: transparent;
+      &:focus {
+        background: $BackGround-Secondary;
+      }
     }
   }
 }
@@ -208,15 +248,6 @@
 //               PaymentForm Object
 //              ==============
 // =============              =============
-@mixin FormTitle($title) {
-  &::before {
-    position: absolute;
-    content: $title;
-    right: 5px;
-    top: 5px;
-    font-size: 12px;
-  }
-}
 
 .PaymentForm {
   & div input {
