@@ -1,6 +1,6 @@
-# WalletState
+**`💻 WalletStat`**
 ---
-**`💻 FullStack Developer`**
+**`💻 About Application`**
 
 > **💾 programming languages :** Angular
 
