@@ -13,7 +13,7 @@
       <div class="Add" (click)="OpenPaymentForm()"><mat-icon fontIcon="add"/></div>
     </div>
     <div class="PaymentBox">
-      @for (Payment of FinalPaymentData ; track Payment.UID) {
+      @for (Payment of FinalPaymentData ; track $index) {
         @let StatusData = GetStatusData(Payment.StatusId) ;
         <div class="PaymentItem" (click)="OpenPaymentFormUpdate(Payment)" [ngStyle]="StatusData ? {'box-shadow': 'inset 0px 1px 5px ' + StatusData.Color + ', 0px 1px 5px ' + StatusData.Color} : {}">
           <div class="Title"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Payment.Title}}</div>
@@ -36,7 +36,8 @@
   <!-- =============              ============= -->
 
   @if (Menu.PaymentForm) {
-    <div class="Home-Title">PaymentForm</div>
+    @if (PaymentFormIsUpdate) {<div class="Home-Title">Edit Payment</div>}
+    @if (!PaymentFormIsUpdate) {<div class="Home-Title">New Payment</div>}
     <div class="Actions">
       <div class="Close" (click)="ClosePaymentForm()"><mat-icon fontIcon="close"/></div>
       <div class="Save" (click)="SavePaymentForm()"><mat-icon fontIcon="done"/></div>
@@ -46,7 +47,7 @@
 
       <div class="Title"><input type="text" [(ngModel)]="PaymentForm.Title"></div>
       <div class="Description"><textarea [(ngModel)]="PaymentForm.Description"></textarea></div>
-      <div class="Price"><input type="number" [(ngModel)]="PaymentForm.Price"></div>
+      <div class="Price" [ngStyle]="{'color': PaymentForm.Profit ? 'forestgreen' : 'brown'}"><input type="number" [(ngModel)]="PaymentForm.Price"></div>
       <div class="Profit">
         <div class="Item true" [ngClass]="{'Active': PaymentForm.Profit}" (click)="PaymentForm.Profit=true"><mat-icon fontIcon="trending_up"/></div>
         <div class="Item false"[ngClass]="{'Active': !PaymentForm.Profit}"(click)="PaymentForm.Profit=false"><mat-icon fontIcon="trending_down"/></div>

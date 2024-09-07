@@ -18,9 +18,9 @@
 
 .PaymentBox {
   position: absolute;
-  z-index: 90;
   overflow: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  z-index: 90;
   inset: 0;
 
   padding: 10px;
@@ -28,11 +28,11 @@
   padding-bottom: 60px;
 
   display: flex;
-  flex-flow: column;
+  flex-flow: column-reverse;
   justify-content: start;
   align-items: center;
 
-  //   border: 1px solid red;
+  // border: 1px solid red;
 }
 .PaymentForm {
   position: absolute;

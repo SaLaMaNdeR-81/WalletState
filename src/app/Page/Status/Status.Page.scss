@@ -16,8 +16,312 @@
   //   border: 1px solid red;
 }
 
+.StatusList-Box {
+  position: absolute;
+  z-index: 90;
+  overflow: hidden;
+  overflow-y: auto;
+  inset: 0;
+
+  padding: 10px;
+  padding-top: 90px;
+  padding-bottom: 60px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+
+  //   border: 1px solid red;
+}
+
+.StatusForm {
+  position: absolute;
+  z-index: 90;
+  overflow: hidden;
+  overflow-y: auto;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // border: 1px solid red;
+}
+
 // =============              =============
 //              ==============
 //                 Object
 //              ==============
 // =============              =============
+
+.Page-Title {
+  position: absolute;
+  user-select: none;
+
+  top: 20px;
+  left: 20px;
+
+  font-family: ElectroHarmonix;
+  font-size: 20px;
+  &.Empty {
+    top: 100px;
+    left: unset;
+    color: goldenrod;
+    & mat-icon {
+      color: goldenrod;
+    }
+  }
+}
+
+.Actions {
+  position: absolute;
+  z-index: 100;
+  bottom: 10px;
+  left: 10px;
+  @include Center;
+  flex-flow: row;
+
+  & div {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    @include Center;
+    margin: 4px;
+    background: $BackGround-Primery;
+    border-radius: 100%;
+    box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+    // border: 1px solid red;
+    & mat-icon {
+      @include Center;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    &:active {
+      box-shadow: inset 0px 1px 5px $Layout-Border;
+    }
+  }
+
+  & .Add {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Save {
+    & mat-icon {
+      color: green;
+    }
+  }
+  & .Delete {
+    & mat-icon {
+      color: brown;
+      font-weight: 300;
+    }
+  }
+  & .Close {
+    & mat-icon {
+      color: brown;
+    }
+  }
+}
+
+// =============              =============
+//              ==============
+//                 Object
+//              ==============
+// =============              =============
+
+.StatusCard {
+  position: relative;
+  user-select: none;
+
+  width: 100%;
+  min-height: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
+  // border: 3px solid transparent;
+  &:active {
+    box-shadow: 0px 1px 5px $Layout-Border;
+  }
+
+  & .Name {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      left: -15px;
+    }
+  }
+
+  & .Color {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    & mat-icon {
+      position: absolute;
+      font-size: 15px;
+      right: -25px;
+    }
+  }
+}
+
+// =============              =============
+//              ==============
+//                 StatusFormObject
+//              ==============
+// =============              =============
+
+.StatusForm {
+  & div input {
+    &:focus {
+      border-bottom: 3px solid $Layout-Border;
+    }
+  }
+  & .Name {
+    position: absolute;
+    overflow: hidden;
+
+    width: 180px;
+    height: 60px;
+    top: 60px;
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+    @include FormTitle("Name");
+    & input {
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      font-size: 15px;
+      background: transparent;
+      text-align: center;
+      outline: unset;
+      border: unset;
+      color: $Color;
+    }
+  }
+  & .Color {
+    position: absolute;
+    overflow: hidden;
+    z-index: 100;
+
+    width: 140px;
+    height: 60px;
+    top: 181px;
+    left: 20px;
+    border-radius: 5px;
+    border: 1px solid $Layout-Border;
+    @include FormTitle("Color");
+    & input {
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      font-size: 15px;
+      background: transparent;
+      text-align: center;
+      outline: unset;
+      border: unset;
+      color: $Color;
+    }
+  }
+  // ===
+  .ColorBox {
+    position: absolute;
+    @include FormTitle("Pick Some Color Or Custom Your Own.");
+    inset: 30px;
+    top: 150px;
+    bottom: unset;
+    padding-top: 120px;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-flow: row;
+    flex-wrap: wrap;
+
+    border-top: 1px solid $Layout-Border;
+
+    .Item {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      margin: 10px;
+      transition: 200ms;
+      border-radius: 100%;
+      border: 2px solid $Layout-Border;
+      &:active {
+        transform: translateY(5px);
+      }
+
+      &.Active {
+        border: 5px solid $Layout-Border;
+      }
+      // ===
+
+      &:nth-child(1) {
+        background: #fff;
+      }
+      &:nth-child(2) {
+        background: #ff0000;
+      }
+      &:nth-child(3) {
+        background: #a52a2a;
+      }
+      &:nth-child(4) {
+        background: #800080;
+      }
+      &:nth-child(5) {
+        background: #d151a6;
+      }
+      &:nth-child(6) {
+        background: #8eaccd;
+      }
+      &:nth-child(7) {
+        background: #185519;
+      }
+      &:nth-child(8) {
+        background: #6a9c89;
+      }
+      &:nth-child(9) {
+        background: #40a578;
+      }
+      &:nth-child(10) {
+        background: #e6ff94;
+      }
+      &:nth-child(11) {
+        background: #ff9100;
+      }
+      &:nth-child(12) {
+        background: #ffbf78;
+      }
+      &:nth-child(13) {
+        background: #f6e96b;
+      }
+      &:nth-child(14) {
+        background: #ffff00;
+      }
+      &:nth-child(15) {
+        background: #daa520;
+      }
+      &:nth-child(16) {
+        background: #0000ff;
+      }
+      &:nth-child(17) {
+        background: #4682b4;
+      }
+      &:nth-child(18) {
+        background: #00ffff;
+      }
+    }
+
+    // ===
+  }
+}

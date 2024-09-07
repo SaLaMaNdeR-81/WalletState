@@ -1,3 +1,67 @@
 <div class="StatusPage-Box">
-  StatusPage-Box
+  
+  @if (!Menu.StatusForm) {
+
+    <div class="Page-Title">StatusList</div>
+    <div class="Actions">
+      <div class="Add" (click)="OpenStatusForm()"><mat-icon fontIcon="add"/></div>
+    </div>
+    <div class="StatusList-Box">
+      @for (Status of StatusListData ; track $index) {
+        <div class="StatusCard" (click)="OpenStatusFormUpdate(Status)" [ngStyle]="Status.Color ? {'box-shadow': 'inset 0px 1px 5px ' + Status.Color + ', 0px 1px 5px ' + Status.Color} : {}">
+          <div class="Name"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Status.Name}}</div>
+          <div class="Color" *ngIf="!Status.Color" > --- <mat-icon fontIcon="format_paint"/> </div>
+          <div class="Color" *ngIf="Status.Color" [ngStyle]="{'color':Status.Color}"> {{Status.Color}} <mat-icon fontIcon="format_paint"/> </div>
+        </div>
+      }@empty {
+        <div class="Page-Title Empty"> Empty List <mat-icon fontIcon="warning_amber"/></div>
+      }
+    </div>
+
+  }
+
+  <!-- =============              ============= -->
+               <!-- ============== -->
+               <!--   StatusForm   -->
+               <!-- ============== -->
+  <!-- =============              ============= -->
+
+  @if (Menu.StatusForm) {
+    @if (StatusFormIsUpdate) {<div class="Page-Title">Edit Status</div>}
+    @if (!StatusFormIsUpdate) {<div class="Page-Title">New Status</div>}
+    <div class="Actions">
+      <div class="Close" (click)="CloseStatusForm()"><mat-icon fontIcon="close"/></div>
+      <div class="Save" (click)="SaveStatusForm()"><mat-icon fontIcon="done"/></div>
+      <div class="Delete" *ngIf="StatusFormIsUpdate" (click)="DeleteStatus()"><mat-icon fontIcon="delete_outline"/></div>
+    </div>
+    <div class="StatusForm">
+
+      <div class="Name"><input type="text" [(ngModel)]="StatusForm.Name"></div>
+      <div class="Color"><input type="text" [ngStyle]="{'color':StatusForm.Color}" [(ngModel)]="StatusForm.Color"></div>
+
+      <div class="ColorBox">
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#fff' }" (click)="SetStatusColor('#fff')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#ff0000' }" (click)="SetStatusColor('#ff0000')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#a52a2a' }" (click)="SetStatusColor('#a52a2a')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#800080' }" (click)="SetStatusColor('#800080')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#d151a6' }" (click)="SetStatusColor('#d151a6')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#8eaccd' }" (click)="SetStatusColor('#8eaccd')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#185519' }" (click)="SetStatusColor('#185519')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#6a9c89' }" (click)="SetStatusColor('#6a9c89')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#40a578' }" (click)="SetStatusColor('#40a578')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#e6ff94' }" (click)="SetStatusColor('#e6ff94')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#ff9100' }" (click)="SetStatusColor('#ff9100')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#ffbf78' }" (click)="SetStatusColor('#ffbf78')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#f6e96b' }" (click)="SetStatusColor('#f6e96b')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#ffff00' }" (click)="SetStatusColor('#ffff00')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#daa520' }" (click)="SetStatusColor('#daa520')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#0000ff' }" (click)="SetStatusColor('#0000ff')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#4682b4' }" (click)="SetStatusColor('#4682b4')"></div>
+        <div class="Item" [ngClass]="{ 'Active': StatusForm.Color === '#00ffff' }" (click)="SetStatusColor('#00ffff')"></div>
+      </div>
+
+    </div>
+
+  }
+
 </div>
