@@ -60,9 +60,10 @@ export class PageHome {
   private GetFinalPaymentData(){
     setInterval(()=>{
       if (this.SelectedStatusID) {
-        this.FinalPaymentData =  this.PaymentData.filter((Item: any) => Item.StatusId === this.SelectedStatusID);
+        const Data =  this.PaymentData.filter((Item: any) => Item.StatusId === this.SelectedStatusID);
+        this.FinalPaymentData = Data.reverse();
       }if(!this.SelectedStatusID || this.SelectedStatusID == "Everyone"){
-        this.FinalPaymentData =  this.PaymentData
+        this.FinalPaymentData =  this.PaymentData.reverse();
       }
     },Storage.RefreshTime)
   }
