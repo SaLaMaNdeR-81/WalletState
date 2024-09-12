@@ -8,10 +8,16 @@
     </div>
     <div class="StatusList-Box">
       @for (Status of StatusListData ; track $index) {
+        @let Description = StatusCardDescriptions(Status.UID);
         <div class="StatusCard" (click)="OpenStatusFormUpdate(Status)" [ngStyle]="Status.Color ? {'box-shadow': 'inset 0px 1px 5px ' + Status.Color + ', 0px 1px 5px ' + Status.Color} : {}">
           <div class="Name"> <mat-icon fontIcon="subdirectory_arrow_right"/> {{Status.Name}}</div>
+          <div class="Description">
+            <div>{{Description.Last30}} ᴸᵃˢᵗ³⁰</div>
+            <!-- <hr> -->
+            <div>{{Description.Total}} ᵀᵒᵗᵃˡ</div>
+          </div>
           <div class="Color" *ngIf="!Status.Color" > --- <mat-icon fontIcon="format_paint"/> </div>
-          <div class="Color" *ngIf="Status.Color" [ngStyle]="{'color':Status.Color}"> {{Status.Color}} <mat-icon fontIcon="format_paint"/> </div>
+          <div class="Color" *ngIf="Status.Color" [ngStyle]="{'color':Status.Color}"> <mat-icon fontIcon="format_paint"/> {{Status.Color}} </div>
         </div>
       }@empty {
         <div class="Page-Title Empty"> Empty List <mat-icon fontIcon="warning_amber"/></div>

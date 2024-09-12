@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TitleService } from './@Core/Service/Title.Service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { TimeService } from './@Core/Service/Time.Service';
 
 @Component({
   selector: 'app-root',

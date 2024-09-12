@@ -13,8 +13,9 @@ export class PageStatus {
 
   StatusFormIsUpdate:boolean=false
   public StatusListData:any = []
+  public PaymentData:any = []
   public Menu:any={
-    StatusForm: true,
+    StatusForm: false,
   }
 
   public StatusForm:any={
@@ -23,8 +24,34 @@ export class PageStatus {
     Color:""
   }
 
-  constructor(private StorageService:StorageService) {
+  constructor(private StorageService:StorageService,private TimeService:TimeService) {
     this.GetStatusListData()
+    this.GetPaymentData()
+    console.log(this.StatusCardDescriptions('StatusUID-1').Total);
+    console.log(this.StatusCardDescriptions('StatusUID-1').Last30);
+  }
+
+  public StatusCardDescriptions(UID:string){
+    const last30DaysDate = this.TimeService.getLast30();
+    let Data = this.StorageService.Get(Storage.PAYMENTLIST)
+    Data = Data.filter((Item: any) => Item.StatusId === UID);
+
+    const FinalData = Data.filter((Item: any) => {
+      const itemCreationDate = new Date(Item.Creation);
+      return itemCreationDate >= last30DaysDate;
+    });
+
+    return{
+      Total : Data.length,
+      Last30 : FinalData.length,
+    }
+    
+  }
+
+  private GetPaymentData(){
+    setInterval(()=>{
+      this.PaymentData = this.StorageService.Get(Storage.PAYMENTLIST)
+    },Storage.RefreshTime)
   }
 
   private GetStatusListData(){

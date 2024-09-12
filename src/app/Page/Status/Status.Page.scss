@@ -141,6 +141,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
 
+  @include Center();
+
   border-radius: 5px;
   box-shadow: inset 0px 1px 5px $Layout-Border, 0px 1px 5px $Layout-Border;
   // border: 3px solid transparent;
@@ -161,16 +163,30 @@
     }
   }
 
+  & .Description {
+    position: absolute;
+    right: 20px;
+
+    & div {
+      margin: 7px;
+      font-size: 20px;
+      font-family: minecraft;
+    }
+    &:nth-child(1) {
+      border-bottom: 1px solid gray;
+    }
+  }
+
   & .Color {
     position: absolute;
     bottom: 5px;
-    right: 30px;
+    left: 30px;
     font-size: 15px;
     letter-spacing: 2px;
     & mat-icon {
       position: absolute;
       font-size: 15px;
-      right: -25px;
+      left: -25px;
     }
   }
 }
