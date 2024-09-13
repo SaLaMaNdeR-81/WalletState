@@ -79,6 +79,7 @@
   position: absolute;
   z-index: 100;
   bottom: 10px;
+  // top: 90%;
   left: 10px;
   @include Center;
   flex-flow: row;
@@ -168,9 +169,19 @@
     right: 20px;
 
     & div {
+      direction: rtl;
       margin: 7px;
       font-size: 20px;
       font-family: minecraft;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & .Price {
+        direction: ltr;
+        position: relative;
+        font-size: 14px;
+        font-family: monospace;
+      }
     }
     &:nth-child(1) {
       border-bottom: 1px solid gray;

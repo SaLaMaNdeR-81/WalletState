@@ -35,15 +35,19 @@ export class PageStatus {
     const last30DaysDate = this.TimeService.getLast30();
     let Data = this.StorageService.Get(Storage.PAYMENTLIST)
     Data = Data.filter((Item: any) => Item.StatusId === UID);
-
-    const FinalData = Data.filter((Item: any) => {
+    const Last30Data = Data.filter((Item: any) => {
       const itemCreationDate = new Date(Item.Creation);
       return itemCreationDate >= last30DaysDate;
     });
 
+    const TotalPrice = Data.reduce((Sum:number,Item:any)=> Sum + Item.Price,0)
+    const Last30Price = Last30Data.reduce((Sum:number,Item:any)=> Sum + Item.Price,0)
+
     return{
       Total : Data.length,
-      Last30 : FinalData.length,
+      TotalPrice : TotalPrice.toLocaleString(),
+      Last30 : Last30Data.length,
+      Last30Price : Last30Price.toLocaleString(),
     }
     
   }
