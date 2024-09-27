@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>آیا از این کار مطمن هستید ؟</h1>
+<!-- <h1 mat-dialog-title> Confirm Form </h1> -->
+<div mat-dialog-content>
+    <p>{{mensaje}}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cerrarDialogo()">خیر</button>
+    <button mat-button (click)="confirmado()" cdkFocusInitial>اره</button>
+    <!-- <button mat-button (click)="cerrarDialogo()">No</button> -->
+    <!-- <button mat-button (click)="confirmado()" cdkFocusInitial>Yes</button> -->
+</div>

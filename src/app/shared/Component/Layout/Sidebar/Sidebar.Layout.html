@@ -2,14 +2,14 @@
 
     <!-- <Sidebar-Label Title="Page" Icon="layers" Color="lightgreen"/> -->
     <Sidebar-Label Title="Page" Icon="" Color="lightgreen"/>
-    <Sidebar-Item Title="Home" Icon="home" Color="lightgreen"(Action)="RedirectToHome()"/>
-    <Sidebar-Item Title="Status" Icon="local_fire_department" Color="gold" (Action)="RedirectStatus()"/>
+    <Sidebar-Item Title="Home" Icon="home" Color="lightgreen"(Action)="RedirectToHome();ToggleSidebarEvent()"/>
+    <Sidebar-Item Title="Status" Icon="local_fire_department" Color="gold" (Action)="RedirectStatus();ToggleSidebarEvent()"/>
     <!-- <Sidebar-Label Title="DevTools" Icon="developer_board" Color="lightgreen"/> -->
     <Sidebar-Label Title="DevTools" Icon="" Color="lightgreen"/>
     <Sidebar-Menu Title="Storage" Icon="api" Color="aqua">
-        <Sidebar-Item Title="Default ˢᶦⁿᵍˡᵉ" Icon="memory" Color="lightgreen" (Action)="SetStorage_Single()"/>
-        <Sidebar-Item Title="Default ᴹᵘˡᵗᶦ" Icon="memory" Color="lightgreen" (Action)="SetStorage_Multi()"/>
-        <Sidebar-Item Title="Clear" Icon="delete" Color="brown" (Action)="ClearStorage()"/>
+        <Sidebar-Item Title="Default ˢᶦⁿᵍˡᵉ" Icon="memory" Color="lightgreen" (Action)="SetStorage_Single();ToggleSidebarEvent()"/>
+        <Sidebar-Item Title="Default ᴹᵘˡᵗᶦ" Icon="memory" Color="lightgreen" (Action)="SetStorage_Multi();ToggleSidebarEvent()"/>
+        <Sidebar-Item Title="Clear" Icon="delete" Color="brown" (Action)="ClearStorage();ToggleSidebarEvent()"/>
     </Sidebar-Menu>
   
 </div>

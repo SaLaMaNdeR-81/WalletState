@@ -1,7 +1,7 @@
 <div class="Box">
 
   <Layout-Header (ToggleSidebar)="ToggleSidebar()"/>
-  <Layout-Sidebar *ngIf="SidebarState" @SlideInOut/>
+  <Layout-Sidebar *ngIf="SidebarState" (ToggleSidebar)="ToggleSidebar()" @SlideInOut/>
   <Layout-Content>
 
     <router-outlet ></router-outlet>

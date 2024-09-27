@@ -208,7 +208,7 @@
     position: absolute;
     overflow: hidden;
     text-overflow: ellipsis;
-    direction: ltr;
+    direction: rtl;
     width: 80%;
     height: 60%;
     top: 30px;
@@ -220,7 +220,7 @@
     -webkit-line-clamp: 2;
     max-height: 3em;
     line-height: 1.5em;
-    letter-spacing: 2px;
+    // letter-spacing: 2px;
     // border: 1px solid red;
     & mat-icon {
       position: absolute;

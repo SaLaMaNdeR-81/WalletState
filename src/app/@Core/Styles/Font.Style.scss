@@ -24,3 +24,17 @@
   font-family: ElectroHarmonix;
   src: url("../Font/electroharmonix.otf");
 }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../Font/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../Font/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
