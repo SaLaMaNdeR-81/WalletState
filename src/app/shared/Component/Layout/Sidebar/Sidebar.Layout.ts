@@ -52,7 +52,7 @@ export class LayoutSidebar implements OnInit {
             alert("تمامی اطلاعات شما پاک شد.");
             // alert("Clear");
           } else {
-            alert("عملیات لغو شد.");
+            // alert("عملیات لغو شد.");
             // alert("Canceled");
           }
         });
