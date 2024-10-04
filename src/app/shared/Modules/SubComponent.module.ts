@@ -5,10 +5,12 @@ import { SidebarItem } from '../Component/Layout/Sidebar/Component/SidebarItem/S
 import { SidebarMenu } from '../Component/Layout/Sidebar/Component/SidebarMenu/SidebarMenu.component';
 import { SidebarLabel } from '../Component/Layout/Sidebar/Component/SidebarLabel/SidebarLabel.component';
 import { DialogConfirmComponent } from '../Component/DialogConfirm/DialogConfirm.component';
+import { StatusDialogFormComponent } from '../Component/StatusDialogForm/StatusDialogForm.component';
 
 @NgModule({
   declarations: [
     DialogConfirmComponent,
+    StatusDialogFormComponent,
 
     SidebarItem,
     SidebarMenu,
@@ -21,6 +23,7 @@ import { DialogConfirmComponent } from '../Component/DialogConfirm/DialogConfirm
   ],
   exports: [
     DialogConfirmComponent,
+    StatusDialogFormComponent,
 
     SidebarItem,
     SidebarMenu,

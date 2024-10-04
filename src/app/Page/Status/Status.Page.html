@@ -38,7 +38,7 @@
     <div class="Actions">
       <div class="Close" (click)="CloseStatusForm()"><mat-icon fontIcon="close"/></div>
       <div class="Save" (click)="SaveStatusForm()"><mat-icon fontIcon="done"/></div>
-      <div class="Delete" *ngIf="StatusFormIsUpdate" (click)="DeleteStatus()"><mat-icon fontIcon="delete_outline"/></div>
+      <div class="Delete" *ngIf="StatusFormIsUpdate" (click)="openDialog()"><mat-icon fontIcon="delete_outline"/></div>
     </div>
     <div class="StatusForm">
 

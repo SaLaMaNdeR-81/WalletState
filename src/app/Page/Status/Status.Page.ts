@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { StorageService,Storage } from '../../@Core/Service/Storage.Service';
 import { TimeService } from '../../@Core/Service/Time.Service';
 
 import { Status } from '../../@Core/InterFace/Payment.Interface';
+import { StatusDialogFormComponent } from '../../shared/Component/StatusDialogForm/StatusDialogForm.component';
 
 @Component({
   selector: 'Page-Status',
@@ -24,11 +26,14 @@ export class PageStatus {
     Color:""
   }
 
-  constructor(private StorageService:StorageService,private TimeService:TimeService) {
+  constructor(private StorageService:StorageService,private TimeService:TimeService,private MatDialog:MatDialog) {
     this.GetStatusListData()
     this.GetPaymentData()
-    console.log(this.StatusCardDescriptions('StatusUID-1').Total);
-    console.log(this.StatusCardDescriptions('StatusUID-1').Last30);
+    // console.log(this.StatusCardDescriptions('StatusUID-1').Total);
+    // console.log(this.StatusCardDescriptions('StatusUID-1').Last30);
+    // this.openDialog()
+  }
+  OnInit(){
   }
 
   public StatusCardDescriptions(UID:string){
@@ -108,6 +113,18 @@ export class PageStatus {
   public DeleteStatus(){
     this.StorageService.Delete(Storage.STATUSLIST,this.StatusForm.UID)
     this.CloseStatusForm()
+  }
+
+  public openDialog(): void {
+    const dialogRef = this.MatDialog.open(StatusDialogFormComponent, {
+      data: { UID: this.StatusForm.UID },
+      width: '300px',
+      height:'300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.CloseStatusForm()
+    });
   }
   public SaveStatusForm(){
     if(!this.StatusForm.Name) return this.CloseStatusForm() ;

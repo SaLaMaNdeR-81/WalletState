@@ -1,0 +1,19 @@
+@import "../../../@Core/Styles/Variables.Style.scss";
+
+.Title {
+  font-size: 20px;
+}
+
+.ContentBox {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  & button {
+    margin: 10px;
+    box-shadow: 0px 1px 5px $Layout-Border;
+  }
+}
