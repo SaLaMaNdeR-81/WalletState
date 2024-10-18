@@ -2,7 +2,7 @@
   
   @if (!Menu.StatusForm) {
 
-    <div class="Page-Title">StatusList</div>
+    <div class="Page-Title">Category List</div>
     <div class="Actions">
       <div class="Add" (click)="OpenStatusForm()"><mat-icon fontIcon="add"/></div>
     </div>
@@ -33,8 +33,8 @@
   <!-- =============              ============= -->
 
   @if (Menu.StatusForm) {
-    @if (StatusFormIsUpdate) {<div class="Page-Title">Edit Status</div>}
-    @if (!StatusFormIsUpdate) {<div class="Page-Title">New Status</div>}
+    @if (StatusFormIsUpdate) {<div class="Page-Title">Edit Category</div>}
+    @if (!StatusFormIsUpdate) {<div class="Page-Title">New Category</div>}
     <div class="Actions">
       <div class="Close" (click)="CloseStatusForm()"><mat-icon fontIcon="close"/></div>
       <div class="Save" (click)="SaveStatusForm()"><mat-icon fontIcon="done"/></div>

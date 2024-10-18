@@ -387,7 +387,7 @@
 
     border-radius: 5px;
     border: 1px solid $Layout-Border;
-    @include FormTitle("Status");
+    @include FormTitle("Category");
     @include Center();
 
     & select {
