@@ -63,7 +63,7 @@ export class LayoutSidebar implements OnInit {
   }
 
   public RedirectStatus() {
-    this.Router.navigate(['/status']); // Redirects to '/home' route
+    this.Router.navigate(['/category']); // Redirects to '/home' route
   }
 
 }

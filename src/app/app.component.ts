@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+
 import { TitleService } from './@Core/Service/Title.Service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { TimeService } from './@Core/Service/Time.Service';
+import { BackButtonHandlerService } from './@Core/Service/BackButtonHandler.Service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,7 @@ import { TimeService } from './@Core/Service/Time.Service';
 export class AppComponent {
   SidebarState :boolean = false
 
-  constructor(private TitleService:TitleService){
+  constructor(private TitleService:TitleService,private BackButtonHandlerService: BackButtonHandlerService){
     TitleService.ResetTitle()
   }
 
